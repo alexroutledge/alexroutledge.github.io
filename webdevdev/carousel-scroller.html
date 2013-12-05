@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Fresca JS Library</title>
+		<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="css/carousel.css" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="javascript/jquery.metadata.js"></script>
+		<script src="javascript/fresca-library.js"></script>
+		<script src="javascript/fresca-carousel.js"></script>
+		<script src="client/javascript/client.js"></script>
+	</head>
+	<body>
+		<main>
+			<article>
+				<h1>Fresca JS Library</h1>
+				<p>All of our projects are different, all of our JavaScript is different. Should we not instead build a new standard set of plugins into Blue Print? Essentially these will be locked files that can't be amended during a project.</p>
+				<p>If any amendments/improvements are required to a global plugin for a specific client, then they can be made using the jQuery extend functionality to override specific methods. Writing all our code as jQuery plugins will provide the encapsulation and reusability that is frequently missing from our code.</p>
+			</article>
+			<article class="left max-width">
+				<h2>Carousel</h2>
+				<div id='carousel_container' class="center">
+				  <div id='left_scroll' data-carousel-controls="previous" data-carousel-events="click">
+				  	<img src='images/carousel/left.png' />
+				  </div>
+				  <div id='carousel_inner'>
+				    <ul id='carousel_ul' data-carousel="{$parent: $('[data-carousel]'), $child: '[data-carousel-child]', $controls: $('[data-carousel-controls]'), events: $('[data-carousel-events]').data('carousel-events'), filter: ':not(:animated)', speed: 500, method: 'animate', multiple: 1, direction: 'left', orientation: 'horizontal'}">
+				      <li data-carousel-child><a href='#'><img src='images/carousel/item1.png' /></a></li>
+				      <li data-carousel-child><a href='#'><img src='images/carousel/item2.png' /></a></li>
+				      <li data-carousel-child><a href='#'><img src='images/carousel/item3.png' /></a></li>
+				      <li data-carousel-child><a href='#'><img src='images/carousel/item4.png' /></a></li>
+				      <li data-carousel-child><a href='#'><img src='images/carousel/item5.png' /></a></li>
+				    </ul>
+				  </div>
+				  <div id='right_scroll' data-carousel-controls="next" data-carousel-events="click">
+				  	<img src='images/carousel/right.png' />
+				  </div>
+				</div>
+			</article>
+			<article>
+				<h2>Contribute</h2>
+				<ul>
+					<li><a href="https://github.com/garyfagan1987/Web-Dev-Dev-JavaScript">View source on Git Hub</a></li>
+				</ul>
+			</article>
+		</main>
+		<footer>
+			Gary, Alex, Janez, Martin
+		</footer>
+		<script type="text/javascript">
+		  $(function () {
+		    $('[data-carousel]').carousel();
+		  })
+		</script>
+	</body>
+</html>
