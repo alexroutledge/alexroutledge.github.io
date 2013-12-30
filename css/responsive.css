@@ -1,0 +1,33 @@
+@media (max-width: 767px) {
+    .visible-phone {
+      display:block;
+    }
+    .visible-tablet {
+      display:none;
+    }
+   .visible-desktop {
+      display:none;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 899px) {
+    .visible-phone {
+      display:none;
+    }
+    .visible-tablet {
+      display:block;
+    }
+   .visible-desktop {
+      display:none;
+    }
+  }
+  @media (min-width: 900px) {
+    .visible-phone {
+      display:none;
+    }
+    .visible-tablet {
+      display:none;
+    }
+   .visible-desktop {
+      display:block;
+    }
+  }

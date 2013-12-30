@@ -1,67 +1,538 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Fresca JS Library</title>
-		<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
-		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="javascript/fresca-library.js"></script>
-		<script src="client/javascript/client.js"></script>
-	</head>
-	<body>
-		<main>
-			<article>
-				<h1>Fresca JS Library</h1>
-				<p>All of our projects are different, all of our JavaScript is different. Should we not instead build a new standard set of plugins into Blue Print? Essentially these will be locked files that can't be amended during a project.</p>
-				<p>If any amendments/improvements are required to a global plugin for a specific client, then they can be made using the jQuery extend functionality to override specific methods. Writing all our code as jQuery plugins will provide the encapsulation and reusability that is frequently missing from our code.</p>
-			</article>
-			<article>
-				<h2>Usage</h2>
-				<p>For each plugin, we should be able to add/override methods without having to create a new plugin. The jQuery widget factory provides a really nice, compact way to do this. As an example, for an existing method, we can just do this:</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Alex Routledge - Web Developer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="description" content="Alex Routledge - Web Developer Portfolio">
+  <meta name="keywords" content="alex,routledge,web developer,ecommerce,portfolio,jquery,JSTL,JSP,backbone,mustache">
+  <meta name="author" content="alexroutledge">
+  <link href="css/main.css" rel="stylesheet" media="screen">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.js"></script>
+      <![endif]-->
+  <meta http-equiv=X-UA-Compatible content=IE=edge>    
+</head>
+<!-- activate scrollspy -->
+<body id="top" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="index.html">Alex Routledge</a> 
+      </div>
+      <div id="nav-collapse" class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a title="CV" href="#cv" class="scroll brand-3">CV</a></li>
+          <li><a title="Portfolio" href="#portfolio" class="scroll fadeto brand-3">Portfolio</a></li>
+          <li><a title="Recommendations" href="#recommendations" class="scroll brand-3">Recommendations</a></li>
+        </ul>
+      </div>
+    </div><!-- /.navbar-container -->
+  </nav>
 
-				<h3>Load in the library</h3>
-				<pre><span class="highlight_purple">&#60;script</span> <span class="highlight_green">src=</span><span class="highlight_blue">"fresca-library.js"</span><span class="highlight_purple">&#62;&#60;/script&#62;</span></pre>
-				
-				<h3>Call the library</h3>
-				<p>Very often we are modifying mark up, from this we cannot determine what JavaScript (if any) is attached. Would using data attributes be preferable to id's and class names? We could even namespace these data attributes like so:</p>
-				<pre><span class="highlight_purple">&#60;a</span> <span class="highlight_green">href=</span><span class="highlight_blue">"#"</span> <span class="highlight_green">data-reveal-events=</span><span class="highlight_blue">"click"</span> <span class="highlight_green">data-reveal-target=</span><span class="highlight_blue">"#myID"</span>&#62;Open modal window<span class="highlight_purple">&#60;/a&#62;</span></pre>
+  <!-- Home Page -->
+  <div id="home" class="page color-3">
+    <div class="inner-page">
+      <h2 class="page-headline">Introduction.</h2>
+    </div>
+    <div class="row inner-page">
+      <div class="col-md-12">
+        <p class="lead">I'm a senior web developer with over 7 years of ecommerce experience. I've built bespoke web applications and orchestrated MV/AB tests for some of the biggest brand names in the retail, fashion and software sectors.</p>
+        <p>I'm currently a senior web developer at BT Expedite, the leading hosted e-commerce platform in the UK. I have strong Javascript skills and have experience in using Backbone, Angular JS and YQL.</p>
+        <p>As well as working on bespoke ecommerce projects, I spend a lot of time assisting other developers with some of the more complex aspects of the job.</p>
+        <p>I have also recently taken on the role of accessibility advocate in an effort to improve the code produced within the department.</p>
+        <p>Aside from my daily development duties, I am a keen presenter and have a strong interest in creating innovative ideas. I've created several ecommerce mini apps and presented these to fellow developers, project managers etc. I also spent a month in Pune, India delivering training sessions in client/server side technologies.</p>
+        <p>I have also made open source contributions to the YQL and customelements.io projects.</p>
+        <p>My current skillbase includes:</p>
+        <ul>
+          <li>JSP/JSTL</li>
+          <li>Velocity</li>
+          <li>CSS</li>
+          <li>Javascript</li>
+          <li>jQuery</li>
+          <li>Backbone</li>
+          <li>Angular</li>
+          <li>Mustache</li>
+          <li>YQL</li>
+          <li>Polymer</li>
+          <li>Node JS</li>
+        </ul>
+        <p>You can view examples of my code at <a href="http://github.com/alexroutledge">http://github.com/alexroutledge</a>.
+      </div>
+    </div>
+  </div><!-- /#home -->
+  
+  <!-- CV page -->
+  <div id="cv" class="page color-3">
+    <div class="inner-page">
+      <h2 class="page-headline">CV.</h2>
+    </div>
+    <div class="row inner-page">
+      <div class="col-md-12">
+        <p>To view my CV, please visit my <a href="http://www.linkedin.com/pub/alex-routledge/22/b62/5a">LinkedIn profile</a></p>
 
-				<h3>Extend the library</h3>
-				<p>The idea is that a developer could add/override individual methods without touching the shared file. This would be really useful for setting which JS templating engine to use or specifying dependencies on other libraries etc.</p>
-				<pre>
-$.widget("fresca.zoom", {
-	options: {
-		// Default options
-	}, somePrivateMethod: function(argument) {
-		// Create a private method
-	}, somePublicMethod: function(argument) {
-		// Create a public method
-	}
-});
-$('#my-zoom-image').zoom({
-	'_somePrivateMethod': 'someVar',
-	'somePublicMethod': 'someVar'
-});
-				</pre>
-			</article>
-			<article>
-				<h2>Code Examples</h2>
-				<ul>
-					<li><a href="image-zoom.html">Image Zoom</a></li>
-					<li><a href="alternative-images.html">Alternative Images</a></li>
-					<li><a href="carousel-scroller.html">Carousel Scroller</a></li>
-					<li><a href="modal-overlay.html">Modal Overlay</a></li>
-				</ul>
-			</article>
-			<article>
-				<h2>Contribute</h2>
-				<ul>
-					<li><a href="https://github.com/garyfagan1987/Web-Dev-Dev-JavaScript">View source on Git Hub</a></li>
-				</ul>
-			</article>
-		</main>
-		<footer>
-			Gary, Alex, Janez, Martin
-		</footer>
-	</body>
+      </div>
+    </div>
+  </div><!-- /#cv -->
+
+  <!-- Recommendations page -->
+  <div id="recommendations" class="page color-3">
+    <div class="inner-page">
+      <h2 class="page-headline">Recommendations.</h2>
+    </div>
+    <div class="row inner-page">
+      <div class="col-md-12">
+        <h3>Ben Morrison - Client Services Manager at RichRelevance</h3>
+        <p class="lead">"Alex is one of the most hard-working individuals that I've ever had the pleasure to work with. Often the first person in the office and last one out, he is driven by customer satisfaction and a pride in his craft. He is a highly regarded developer within the department and always happy to shoulder additional responsibility. He is technically strong and has even taken on the role of security expert for the web development requirements of PCI. I would recommend Alex highly."</p>
+      </div>
+    </div>
+  </div> <!-- /#recommendations -->
+ 
+  <!-- Portfolio page -->
+  <div id="portfolio" class="page color-4">
+    <div class="inner-page">
+      <h2 class="page-headline">Portfolio of recent work.</h2>
+    </div>
+    <hr>
+    <div class="row inner-page team">
+      <div class="col-md-6">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/perfumeshop_logo.gif" alt="The Perfume Shop" />
+          <h4>The Perfume Shop</h4>
+        </div>
+        <div class="row">
+          <p>Checkout redesign built using jQuery, Backbone, JSP/JSTL and XHTML.</p>
+        </div>
+        <div class="row">
+          <p><a href="#perfumeshop_checkout" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+        <div class="row">
+          <ul class="hidden-phone">
+            <li><i class="fa fa-home"></i>
+              <a href="http://www.theperfumeshop.com">http://www.theperfumeshop.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 team2">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/thomaspink_logo.gif" alt="Thomas Pink" />
+          <h4>Thomas Pink</h4>
+        </div>
+        <div class="row">
+          <p>CRM/loyalty integration built using jQuery, JSP/JSTL and XHTML.</p>
+        </div>
+        <div class="row">
+          <p><a href="#thomaspink_loyalty" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+        <div class="row">
+          <ul class="hidden-phone">
+            <li><i class="fa fa-home"></i> 
+              <a href="http://www.thomaspink.com">http://www.thomaspink.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row inner-page team">
+      <div class="col-md-6">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/claires_logo.png" alt="Claires" />
+          <h4>Claires</h4>
+        </div>
+        <div class="row">
+          <p>Platform upgrade built using jQuery, JSP/JSTL and XHTML.</p>
+          <p><a href="#claires_upgrade" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+        <div class="row">
+          <ul class="hidden-phone">
+            <li><i class="fa fa-home"></i>
+              <a href="http://www.claires.co.uk">http://www.claires.co.uk</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 team2">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/austinreed_logo.gif" alt="Austin Reed" />
+          <h4>Austin Reed</h4>
+        </div>
+        <div class="row">
+          <p>Product recommendations integration built using jQuery, Mustache, JSP/JSTL and XHTML.</p>
+        </div>
+        <div class="row">
+          <p><a href="#austinreed_recommendations" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+        <div class="row">
+          <ul class="hidden-phone">
+            <li><i class="fa fa-home"></i> 
+              <a href="http://www.austinreed.co.uk">http://www.austinreed.co.uk</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row inner-page team">
+      <div class="col-md-6">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/perfumeshop_logo.gif" alt="The Perfume Shop" />
+          <h4>The Perfume Shop</h4>
+        </div>
+        <div class="row">
+          <p>CRM/loyalty integration built using jQuery, Backbone, JSP/JSTL and XHTML.</p>
+        </div>
+        <div class="row">
+          <p><a href="#perfumeshop_loyalty" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+        <div class="row">
+          <ul class="hidden-phone">
+            <li><i class="fa fa-home"></i>
+              <a href="http://www.theperfumeshop.com">http://www.theperfumeshop.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 team2">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/thomaspink_logo.gif" alt="Thomas Pink" />
+          <h4>Thomas Pink</h4>
+        </div>
+        <div class="row">
+          <p>Checkout redesign built using jQuery, JSP/JSTL and XHTML.</p>
+        </div>
+        <div class="row">
+          <p><a href="#thomaspink_checkout" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+        <div class="row">
+          <ul class="hidden-phone">
+            <li><i class="fa fa-home"></i> 
+              <a href="http://www.thomaspink.com">http://www.thomaspink.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row inner-page team">
+      <div class="col-md-6">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/citrix_logo.png" alt="Citrix" />
+          <h4>Citrix</h4>
+        </div>
+        <div class="row">
+          <p>Site redesign built using jQuery, JSP/JSTL and XHTML.</p>
+        </div>
+        <div class="row">
+          <p><a href="#citrix_redesign" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+        <div class="row">
+          <ul class="hidden-phone">
+            <li><i class="fa fa-home"></i>
+              <a href="http://store.citrix.com">http://store.citrix.com/</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 team2">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/github_logo.jpg" alt="Github" />
+          <h4>Internal Project</h4>
+        </div>
+        <div class="row">
+          <p>Internal project to prototype the use of real time analytics data, built using jQuery, Backbone and Firebase.</p>
+        </div>
+        <div class="row">
+          <p><a href="#realtime_analytics" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="row inner-page team">
+      <div class="col-md-6">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/perfumeshop_logo.gif" alt="The Perfume Shop" />
+          <h4>The Perfume Shop</h4>
+        </div>
+        <div class="row">
+          <p>Mobile optimized site built using jQuery, JSP/JSTL and XHTML.</p>
+        </div>
+        <div class="row">
+          <p><a href="#perfumeshop_mobile" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+        <div class="row">
+          <ul class="hidden-phone">
+            <li><i class="fa fa-home"></i>
+              <a href="http://m.theperfumeshop.com">http://m.theperfumeshop.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 team2">
+        <div class="row">
+          <img class="pull-left hidden-phone" src="images/farrowandball_logo.jpg" alt="Farrow &amp; Ball" />
+          <h4>Farrow &amp; Ball</h4>
+        </div>
+        <div class="row">
+          <p>Product selector built using jQuery, JSP/JSTL and XHTML.</p>
+        </div>
+        <div class="row">
+          <p><a href="#farrowandball_selector" class="btn btn-primary" title="Read more">Read more</a></p>
+        </div>
+        <div class="row">
+          <ul class="hidden-phone">
+            <li><i class="fa fa-home"></i> 
+              <a href="http://www.farrow-ball.com">http://www.farrow-ball.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /#portfolio -->
+
+  <!--perfumeshop_checkout-->
+  <div id="perfumeshop_checkout" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Checkout redesign</h3>
+        </div>
+        <div class="row">
+          <p>
+          The Perfume Shop had a complex checkout process and reduce the number of required steps from 4 to 3, whilst preserving existing bespoke functionality.
+          </p>
+          <p>Some of the bespoke features included the integration of a 90 minute delivery service called Shutl and restricting certain checkout features by country/region</p>
+          <p>The client wanted the basket and checkout addresses to be updateable via AJAX. Backbone was used for this purpose to separate the front end logic into models, views and controllers.</p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/perfume_checkout_redesign.png" alt="The Perfume Shop - Checkout redesign">
+      </div>
+    </div>
+  </div>
+
+  <!--thomaspink_loyalty-->
+  <div id="thomaspink_loyalty" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>CRM/loyalty integration</h3>
+        </div>
+        <div class="row">
+          <p>
+          Thomas Pink had a complex CRM project that integrated data from online channels with data collected from their physical stores.
+          </p>
+          <p>
+            The 'My Account' section was separated into mini views, containing features such as order history, wishlist etc.
+          </p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/thomaspink_crm.png" alt="Thomas Pink - CRM integration">
+      </div>
+    </div>
+  </div>
+
+  <!--claires_upgrade-->
+  <div id="claires_upgrade" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Ecommerce platform upgrade</h3>
+        </div>
+        <div class="row">
+          <p>This was a project to update the client to the most recent version of the ecommerce platform
+          </p>
+          <p>Primarily, this involved refactoring/improving the existing JSTL, JS and CSS code.</p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/claires_upgrade.png" alt="Claires - Platform Upgrade">
+      </div>
+    </div>
+  </div>
+
+  <!--austinreed_recommendations-->
+  <div id="austinreed_recommendations" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Product recommendations integration</h3>
+        </div>
+        <div class="row">
+          <p>This was a project to integrate with a third party called Peerius to supply recommendations based on products, searches and basket data.
+          </p>
+          <p>jQuery and Mustache was used to transform the JSON response from Peerius into various views on the website</p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/austinreed_peerius.png" alt="Austin Reed - Recommendations">
+      </div>
+    </div>
+  </div>
+
+  <!--perfumeshop_loyalty-->
+  <div id="perfumeshop_loyalty" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>CRM/loyalty integration</h3>
+        </div>
+        <div class="row">
+          <p>This was a complex project to enable a multi-step loyalty flow, whilst integrating with CRM data from the client's existing system.
+          </p>
+          <p>Backbone was used to separate the front end logic into models, views and controllers.</p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/perfume_crm.png" alt="The Perfume Shop - CRM integration">
+      </div>
+    </div>
+  </div>
+
+  <!--thomaspink_checkout-->
+  <div id="thomaspink_checkout" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Checkout redesign</h3>
+        </div>
+        <div class="row">
+          <p>This was a project to redesign the client's existing checkout flow, according to ecommerce best practice, taking into consideration recent MV/AB tests.
+          </p>
+          <p>JSTL, CSS and jQuery were used extensively for this project.</p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/thomaspink_checkout.png" alt="Thomas Pink - Checkout redesign">
+      </div>
+    </div>
+  </div>
+
+  <!--citrix_redesign-->
+  <div id="citrix_redesign" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Site redesign</h3>
+        </div>
+        <div class="row">
+          <p>This was a project to completely redesign the client's existing website.
+          </p>
+          <p>JSTL, CSS and jQuery were used extensively for this project.</p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/citrix_redesign.png" alt="Citrix - Site redesign">
+      </div>
+    </div>
+  </div>
+
+  <!--realtime_analytics-->
+  <div id="realtime_analytics" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Real time analytics</h3>
+        </div>
+        <div class="row">
+          <p>This was an internal project to illustrate how real time analytics data could be used within the browser as a form of social proof. Examples uses include notifying users when a product is added to the basket/wishlist or to show the number of concurrent visitors to a site.
+          </p>
+          <p>You can find out more information about this project <a href="http://github.com/alexroutledge/realtimeanalytics">here</a>.</p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/realtime_analytics.png" alt="Real time analytics">
+      </div>
+    </div>
+  </div>
+
+  <!--perfumeshop_mobile-->
+  <div id="perfumeshop_mobile" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Mobile optimized site</h3>
+        </div>
+        <div class="row">
+          <p>This was a project to create a mobile optimized site.
+          </p>
+          <p>JSTL, CSS and jQuery were used extensively for this project.</p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/perfume_mobile.png" alt="The Perfume Shop - Mobile site">
+      </div>
+    </div>
+  </div>
+
+  <!--farrowandball_selector-->
+  <div id="farrowandball_selector" class="page color-3">
+    <div class="row inner-page">
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Product selector</h3>
+        </div>
+        <div class="row">
+          <p>This was a project to assist customers in choosing paint and wallpaper products.
+          </p>
+          <p>Customers enter various details about their room, e.g. measurements, paint type etc. and a product is dynamically chosen the matches their specific needs.</p>
+          <p>JSTL, CSS and jQuery were used extensively for this project.</p>
+        </div>
+        <div class="row">
+          <a href="#portfolio" class="btn btn-primary" title="Back to portfolio">Back to portfolio</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img class="figurette" src="images/farrowandball_selector.png" alt="Farrow &amp; Ball - Product Selector">
+      </div>
+    </div>
+  </div>
+
+  <!-- The footer, social media icons, and copyright -->
+  <footer class="page color-5">
+    <div class="inner-page row">
+      <div class="col-md-6 social">
+        <a href="http://www.twitter.com/alexroutledge"><i class="fa fa-twitter"></i></a>
+        <a href="http://www.linkedin.com/pub/alex-routledge/22/b62/5a"><i class="fa fa-linkedin-square"></i></a>
+        <a href="http://www.github.com/alexroutledge"><i class="fa fa-github-square"></i></a>
+      </div>
+      <div class="col-md-6 text-right copyright">
+        &copy; 2013 <a href="http://alexroutledge.github.io" title="Alex Routledge - Web Developer">alexroutledge.github.io</a> | all rights reserved | <a href="#top" title="Got to top" class="scroll">To top <i class="fa fa-caret-up"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>
