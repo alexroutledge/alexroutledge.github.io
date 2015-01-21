@@ -87,7 +87,8 @@ this.addEventListener('install', function(event) {
     caches.create('v1').then(function(cache) {
       return cache.add(
         '/serviceworker/',
-        '/serviceworker/test.css'
+        '/serviceworker/test.css',
+        '/serviceworker/test2.css'
       );
     })
   );
