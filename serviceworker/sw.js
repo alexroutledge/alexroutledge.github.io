@@ -88,7 +88,7 @@ this.oninstall = function(e) {
     var visited = new Cache();
     // Fetch them.
     e.waitUntil(resources.add(
-        "/",
+        "/serviceworker/",
         "/serviceworker/test.css"
     ).then(function() {
         // Add caches to the global caches.
