@@ -24,7 +24,7 @@
     };
 
     navigator.serviceWorker.register('sw.js', {
-      scope: './'
+      scope: '/serviceworker/'
     }).then(function(sw) {
       log("Registered!", sw);
       log("You should get a different response when you refresh");
