@@ -1,9 +1,35 @@
-self.addEventListener('fetch', function(event) {
-  if (/\.jpg$/.test(event.request.url)) {
-    event.respondWith(
-      fetch('https://www.google.co.uk/logos/doodles/2014/60th-anniversary-of-the-unveiling-of-the-first-routemaster-bus-4922931108904960.3-hp.gif', {
-        mode: 'no-cors'
-      })
+this.oninstall = function(e) {
+    // Create a cache of resources.
+    var resources = new Cache();
+    var visited = new Cache();
+    // Fetch them.
+    e.waitUntil(resources.add(
+        "/",
+        "test.css"
+    ).then(function() {
+        // Add caches to the global caches.
+        return Promise.all([
+            caches.set("v1", resources),
+            caches.set("visited", visited)
+        ]);
+    }));
+};
+ 
+this.onfetch = function(e) {
+    e.respondWith(
+        // Check to see if request is found in cache
+        caches.match(e.request).catch(function() {
+            // It's not? Prime the cache and return the response.
+            return caches.get("visited").then(function(visited) {
+                return fetch(e.request).then(function(response) {
+                    visited.put(e.request, response);
+                    // Don't bother waiting, respond already.
+                    return response;
+                });
+            });
+        }).catch(function() {
+            // Connection is down? Simply fallback to a pre-cached page.
+            return caches.match("/fallback.html");
+        });
     );
-  }
-});
+};
