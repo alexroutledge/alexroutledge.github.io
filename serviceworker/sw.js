@@ -1,27 +1,107 @@
-importScripts("/serviceworker/cache-polyfill.js");
+(function () {
+  "use strict";
+  /* global importScripts */
+  /* global self */
+  /* global caches */
+  /* global fetch */
+  /* global URL */
 
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.create('v1').then(function(cache) {
-      return cache.add(
-        '/serviceworker/',
-        '/serviceworker/test.css',
-        '/serviceworker/test2.css'
-      );
-    })
-  );
-});
 
-self.addEventListener('fetch', function(event) {
-  var cachedResponse = caches.match(event.request).catch(function() {
-    return event.default().then(function(response) {
-      return caches.get('v1').then(function(cache) {
-        cache.put(event.request, response.clone());
-        return response;
-      });  
-    });
-  }).catch(function() {
-    return caches.match('/sw-test/gallery/myLittleVader.jpg');
+  // Include SW cache polyfill
+  importScripts("/serviceworker/cache-polyfill.js");
+
+
+  // Cache name definitions
+  var cacheNameStatic = "r3search-static-v4";
+  var cacheNameWikipedia = "r3search-wikipedia-v1";
+  var cacheNameTypekit = "r3search-typekit-v1";
+
+  var currentCacheNames = [
+    cacheNameStatic,
+    cacheNameWikipedia,
+    cacheNameTypekit
+  ];
+
+
+  // A new ServiceWorker has been registered
+  self.addEventListener("install", function (event) {
+    event.waitUntil(
+      caches.open(cacheNameStatic)
+        .then(function (cache) {
+          return cache.addAll([
+            "/serviceworker/",
+            "/serviceworker/test.css",
+          ]);
+        })
+    );
   });
-  event.respondWith(cachedResponse);
-});
+
+
+  // A new ServiceWorker is now active
+  self.addEventListener("activate", function (event) {
+    event.waitUntil(
+      caches.keys()
+        .then(function (cacheNames) {
+          return Promise.all(
+            cacheNames.map(function (cacheName) {
+              if (currentCacheNames.indexOf(cacheName) === -1) {
+                // TODO: if wikipedia cache changed, remove localStorage history
+                return caches.delete(cacheName);
+              }
+            })
+          );
+        })
+    );
+  });
+
+
+  // The page has made a request
+  self.addEventListener("fetch", function (event) {
+    var requestURL = new URL(event.request.url);
+
+    event.respondWith(
+      caches.match(event.request)
+        .then(function (response) {
+
+          if (response) {
+            return response;
+          }
+
+          var fetchRequest = event.request.clone();
+
+          return fetch(fetchRequest).then(
+            function (response) {
+
+              var shouldCache = false;
+
+              if (response.type === "basic" && response.status === 200) {
+                shouldCache = cacheNameStatic;
+              } else if (response.type === "opaque") { // if response isn"t from our origin / doesn"t support CORS
+                if (requestURL.hostname.indexOf(".wikipedia.org") > -1) {
+                  shouldCache = cacheNameWikipedia;
+                } else if (requestURL.hostname.indexOf(".typekit.net") > -1) {
+                  shouldCache = cacheNameTypekit;
+                } else {
+                  // just let response pass through, don"t cache
+                }
+
+              }
+
+              if (shouldCache) {
+                var responseToCache = response.clone();
+
+                caches.open(shouldCache)
+                  .then(function (cache) {
+                    var cacheRequest = event.request.clone();
+                    cache.put(cacheRequest, responseToCache);
+                  });
+              }
+
+              return response;
+            }
+          );
+        })
+    );
+  });
+
+})();
