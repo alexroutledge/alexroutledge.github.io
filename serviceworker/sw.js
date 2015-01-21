@@ -1,6 +1,6 @@
 importScripts("cache-polyfill.js");
 
-this.addEventListener('install', function(event) {
+self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.create('v1').then(function(cache) {
       return cache.add(
@@ -12,7 +12,7 @@ this.addEventListener('install', function(event) {
   );
 });
 
-this.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function(event) {
   var cachedResponse = caches.match(event.request).catch(function() {
     return event.default().then(function(response) {
       return caches.get('v1').then(function(cache) {
