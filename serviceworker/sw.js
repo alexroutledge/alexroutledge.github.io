@@ -82,38 +82,27 @@ if (!CacheStorage.prototype.match) {
   };
 }
 
-this.oninstall = function(e) {
-    // Create a cache of resources.
-    var resources = new Cache();
-    var visited = new Cache();
-    // Fetch them.
-    e.waitUntil(resources.add(
-        "/serviceworker/",
-        "/serviceworker/test.css"
-    ).then(function() {
-        // Add caches to the global caches.
-        return Promise.all([
-            caches.set("v1", resources),
-            caches.set("visited", visited)
-        ]);
-    }));
-};
- 
-this.onfetch = function(e) {
-    e.respondWith(
-        // Check to see if request is found in cache
-        caches.match(e.request).catch(function() {
-            // It's not? Prime the cache and return the response.
-            return caches.get("visited").then(function(visited) {
-                return fetch(e.request).then(function(response) {
-                    visited.put(e.request, response);
-                    // Don't bother waiting, respond already.
-                    return response;
-                });
-            });
-        }).catch(function() {
-            // Connection is down? Simply fallback to a pre-cached page.
-            return caches.match("/fallback.html");
-        });
-    );
-};
+this.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.create('v1').then(function(cache) {
+      return cache.add(
+        '/serviceworker/',
+        '/serviceworker/test.css'
+      );
+    })
+  );
+});
+
+this.addEventListener('fetch', function(event) {
+  var cachedResponse = caches.match(event.request).catch(function() {
+    return event.default().then(function(response) {
+      return caches.get('v1').then(function(cache) {
+        cache.put(event.request, response.clone());
+        return response;
+      });  
+    });
+  }).catch(function() {
+    return caches.match('/sw-test/gallery/myLittleVader.jpg');
+  });
+  event.respondWith(cachedResponse);
+});
