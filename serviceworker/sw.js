@@ -5,7 +5,7 @@ this.oninstall = function(e) {
     // Fetch them.
     e.waitUntil(resources.add(
         "/",
-        "test.css"
+        "/serviceworker/test.css"
     ).then(function() {
         // Add caches to the global caches.
         return Promise.all([
