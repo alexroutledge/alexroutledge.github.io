@@ -14,7 +14,7 @@
       scope: "/r3search/"
     }).then(function (reg) {
       console.log("SW register success", reg);
-      window.location.reload();
+      //window.location.reload();
     }, function (err) {
       console.log("SW register fail", err);
     });
