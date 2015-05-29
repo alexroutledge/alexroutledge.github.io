@@ -3,15 +3,17 @@
 <html>
 <head>
   <script>
-  var sw;
-  sw = Object.create(HTMLElement.prototype);
-  sw.createdCallback = function() {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register(this.getAttribute('sw'), {scope: this.getAttribute('scope')});
-    }
-  }
   document.registerElement('service-worker', {
-    prototype: sw,
+    prototype: Object.create(
+      HTMLElement.prototype, {
+        createdCallback: {
+          value: function() {
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register(this.getAttribute('sw'), {scope: this.getAttribute('scope')});
+            }
+          }
+        }
+    }),
     extends: 'body'
   });
   </script>
