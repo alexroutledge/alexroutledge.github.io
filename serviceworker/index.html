@@ -2,11 +2,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script>
+  var MyElement = document.registerElement(
+    'service-worker',
+    {
+      prototype: Object.create(
+        HTMLElement.prototype,
+        extends: 'body', {
+        createdCallback: {value: function() {
+          console.log('here I am ^_^ ');
+          console.log('with content: ', this);
+        }},
+        attachedCallback: {value: function() {
+          console.log('live on DOM ;-) ');
+        }}
+      })
+    }
+  );
+  </script>
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Special+Elite'>
 </head>
-<body>
+<body is="service-worker">
 <div id="status"></div>
 <script>
+
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js', {scope: './'}).then(function() {
           // Registration was successful. Now, check to see whether the service worker is controlling the page.
