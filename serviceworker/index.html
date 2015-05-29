@@ -3,8 +3,12 @@
 <html>
 <head>
   <script>
-  var MyElement = document.registerElement(
-    'service-worker',
+  document.registerElement('service-worker', {
+    prototype: Object.create(HTMLElement.prototype),
+    extends: 'body'
+  });
+  /*
+  var MyElement = document.registerElement('service-worker', 
     {
       prototype: Object.create(
         HTMLElement.prototype,
@@ -19,6 +23,7 @@
       })
     }
   );
+*/
   </script>
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Special+Elite'>
 </head>
