@@ -9,7 +9,7 @@
     console.log(this);
   }
   document.registerElement('service-worker', {
-    prototype: Object.create(HTMLElement.prototype),
+    prototype: sw,
     extends: 'body'
   });
   /*
