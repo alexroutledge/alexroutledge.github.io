@@ -7,8 +7,7 @@
   sw = Object.create(HTMLElement.prototype);
   sw.createdCallback = function() {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register(this.getAttribute('sw'), {scope: this.getAttribute('scope')}).then(function() {
-      });
+      navigator.serviceWorker.register(this.getAttribute('sw'), {scope: this.getAttribute('scope')});
     }
   }
   document.registerElement('service-worker', {
@@ -18,6 +17,7 @@
   </script>
 </head>
 <body is="service-worker" sw="service-worker.js" scope="./">
-  <img src="http://www.yell.com/img/R08_logo.png"/>
+  <link href="all-global.css" rel="stylesheet" />
+  <link href="all-bip.css" rel="stylesheet" />
 </body>
 </html>
