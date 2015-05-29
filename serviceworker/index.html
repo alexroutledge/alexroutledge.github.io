@@ -10,6 +10,7 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register(this.getAttribute('sw'), {scope: './'}).then(function() {
       });
+    }
   }
   document.registerElement('service-worker', {
     prototype: sw,
