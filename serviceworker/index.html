@@ -7,6 +7,9 @@
   sw = Object.create(HTMLElement.prototype);
   sw.createdCallback = function() {
     console.log(this);
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register(this.getAttribute('sw'), {scope: './'}).then(function() {
+      });
   }
   document.registerElement('service-worker', {
     prototype: sw,
@@ -34,7 +37,7 @@
 </head>
 <body is="service-worker" sw="service-worker.js">
 <div id="status"></div>
-<script>
+<script type="text">
 
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js', {scope: './'}).then(function() {
