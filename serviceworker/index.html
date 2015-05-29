@@ -3,6 +3,11 @@
 <html>
 <head>
   <script>
+  var sw;
+  sw = Object.create(HTMLElement.prototype);
+  sw.createdCallback = function() {
+    console.log(this);
+  }
   document.registerElement('service-worker', {
     prototype: Object.create(HTMLElement.prototype),
     extends: 'body'
@@ -27,7 +32,7 @@
   </script>
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Special+Elite'>
 </head>
-<body is="service-worker">
+<body is="service-worker" sw="service-worker.js">
 <div id="status"></div>
 <script>
 
