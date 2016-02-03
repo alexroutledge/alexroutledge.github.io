@@ -8,7 +8,7 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
   if (/\.gif$|.png$/.test(event.request.url)) {
   event.respondWith(
-	  fetch('lazy-load.gif', {
+	  fetch('https://www.google.co.uk/images/nav_logo242.png', {
 		  mode: 'no-cors'
 		  })
 		);
