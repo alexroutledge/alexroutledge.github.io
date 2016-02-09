@@ -9,7 +9,9 @@
         createdCallback: {
           value: function() {
             if ('serviceWorker' in navigator) {
-              navigator.serviceWorker.register(this.getAttribute('href'));
+              navigator.serviceWorker.register(this.getAttribute('href'), {
+                scope: this.getAttribute('scope')
+              });
             }
           }
         }
@@ -17,7 +19,7 @@
     extends: 'link'
   });
   </script>
-  <link is="service-worker" rel="serviceworker" href="service-worker.js"/>
+  <link is="service-worker" rel="serviceworker" href="service-worker.js" scope="./"/>
 </head>
 <body>
   THIS IS A TEST
