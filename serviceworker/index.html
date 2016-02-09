@@ -5,20 +5,23 @@
   <script>
   document.registerElement('service-worker', {
     prototype: Object.create(
-      HTMLElement.prototype, {
+      HTMLLinkElement.prototype, {
         createdCallback: {
           value: function() {
             if ('serviceWorker' in navigator) {
-              navigator.serviceWorker.register(this.getAttribute('sw'), {scope: this.getAttribute('scope')});
+              navigator.serviceWorker.register(this.getAttribute('href'), {
+                scope: this.getAttribute('scope')
+              });
             }
           }
         }
     }),
-    extends: 'body'
+    extends: 'link'
   });
   </script>
+  <link is="service-worker" rel="serviceworker" href="service-worker.js" scope="./"/>
 </head>
-<body is="service-worker" sw="service-worker.js" scope="./">
+<body>
   THIS IS A TEST
   <link href="test.css" rel="stylesheet" />
   <link href="test2.css" rel="stylesheet" />
