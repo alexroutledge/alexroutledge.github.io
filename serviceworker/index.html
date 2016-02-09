@@ -9,10 +9,10 @@
         createdCallback: {
           value: function() {
             var href = this.getAttribute('href');
-            this.removeAttribute('href');
+            //this.removeAttribute('href');
             if ('serviceWorker' in navigator) {
               navigator.serviceWorker.register(href);
-              this.setAttribute('href', href);
+              //this.setAttribute('href', href);
             }
           }
         }
