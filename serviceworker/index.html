@@ -12,6 +12,7 @@
             this.removeAttribute('href');
             if ('serviceWorker' in navigator) {
               navigator.serviceWorker.register(href);
+              this.setAttribute('href', href);
             }
           }
         }
