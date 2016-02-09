@@ -8,11 +8,8 @@
       HTMLLinkElement.prototype, {
         createdCallback: {
           value: function() {
-            var href = this.getAttribute('href');
-            //this.removeAttribute('href');
             if ('serviceWorker' in navigator) {
-              navigator.serviceWorker.register(href);
-              //this.setAttribute('href', href);
+              navigator.serviceWorker.register(this.getAttribute('href'));
             }
           }
         }
