@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +7,13 @@
       HTMLLinkElement.prototype, {
         createdCallback: {
           value: function() {
+            var href = this.getAttribute('href');
+            this.removeAttribute('href');
             if ('serviceWorker' in navigator) {
-              navigator.serviceWorker.register(this.getAttribute('href'), {
+              navigator.serviceWorker.register(href, {
                 scope: this.getAttribute('scope')
               });
+              this.setAttribute('href', href);
             }
           }
         }
