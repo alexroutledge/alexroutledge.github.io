@@ -8,7 +8,7 @@
         createdCallback: {
           value: function() {
             if ('serviceWorker' in navigator) {
-              navigator.serviceWorker.register(this.getAttribute('src'), {
+              navigator.serviceWorker.register(this.getAttribute('href'), {
                 scope: this.getAttribute('scope')
               });
             }
@@ -18,11 +18,11 @@
     extends: 'link'
   });
   </script>
-  <link is="service-worker" rel="serviceworker" src="service-worker.js" scope="./"/>
-  <link rel="stylesheet" href="test.css" />
-  <link rel="stylesheet" href="test2.css" />
+  <link is="service-worker" rel="serviceworker" href="service-worker.js" scope="./"/>
 </head>
 <body>
+  <link rel="stylesheet" href="test.css" />
+  <link rel="stylesheet" href="test2.css" />
   <p>Turn off network and reload to see this page served from a service worker</p>
 </body>
 </html>
