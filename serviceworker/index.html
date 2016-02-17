@@ -8,7 +8,6 @@
         createdCallback: {
           value: function() {
             if ('serviceWorker' in navigator) {
-              console.log(this);
               navigator.serviceWorker.register(this.getAttribute('href'), {
                 scope: this.getAttribute('scope')
               });
