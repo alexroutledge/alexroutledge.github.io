@@ -15,7 +15,7 @@
                   scope: this.getAttribute('scope')
                 });
               }
-              navigator.serviceWorker.register.apply(this, args);
+              navigator.serviceWorker.register.apply(navigator.serviceWorker, args);
             }
           }
         }
