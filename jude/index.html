@@ -27,6 +27,7 @@
 			add new block
 			delete a block
 			*/
+			var color = 0x00ff80;
 			var container;
 			var camera, scene, renderer;
 			var plane;
@@ -34,12 +35,26 @@
 			var mouse, raycaster, isShiftDown = false;
 
 			var cubeGeometry = new THREE.BoxGeometry( 50, 50, 50 );
-			var cubeMaterial = new THREE.MeshLambertMaterial( { color: 0x00ff80, overdraw: 0.5 } );
+			var cubeMaterial = new THREE.MeshLambertMaterial( { color: color, overdraw: 0.5 } );
 
 			var objects = [];
 
 			init();
 			render();
+			
+			function getRandomInt(min, max) {
+			  return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+			  
+			function changeColour() {
+			  var colors = [0x00ff80, 0xfffff, 0x000000, 0xffc0cb, 0xff00ff, 0xffff00];
+			  var filteredColours = colors
+			  .filter(function(el) {
+				return el !== color;
+			  });
+			  color = filteredColours[getRandomInt(1, filteredColours.length)];
+			  cubeMaterial = new THREE.MeshLambertMaterial( { color: color, overdraw: 0.5 } )
+			}
 
 			function init() {
 
@@ -51,7 +66,7 @@
 				info.style.top = '10px';
 				info.style.width = '100%';
 				info.style.textAlign = 'center';
-				info.innerHTML = 'Laptop edition. <a href="javascript:save()">Save world camera.<a/>';
+				info.innerHTML = 'Laptop edition. <a href="javascript:save()">Save world camera.<a/> <a href="javascript:changeColour()">Change block colour</a>';
 				//info.innerHTML = 'Jude\'s game. <a href="javascript:save()">save .png</a>';
 				container.appendChild( info );
 
