@@ -27,7 +27,8 @@
 			add new block
 			delete a block
 			*/
-			var color = 0x00ff80;
+			var colors = [0x00ff80, 0xfffff, 0x000000, 0xffc0cb, 0xff00ff, 0xffff00, 0xff0000, 0xffd700, 0x0000ff, 0x800080, 0x40e0d0];
+			var color = colors[getRandomInt(1, colors.length)];
 			var container;
 			var camera, scene, renderer;
 			var plane;
@@ -47,7 +48,6 @@
 			}
 			  
 			function changeColour() {
-			  var colors = [0x00ff80, 0xfffff, 0x000000, 0xffc0cb, 0xff00ff, 0xffff00];
 			  var filteredColours = colors
 			  .filter(function(el) {
 				return el !== color;
