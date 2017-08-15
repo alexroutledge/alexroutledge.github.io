@@ -4,5 +4,7 @@ var code = url.searchParams.get('code');
 window.opener.postMessage({
   code: code
 }, '*');
-window.close();
+setTimeout(() => {
+  window.close();
+}, 5000);
 </script>
