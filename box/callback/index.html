@@ -4,4 +4,5 @@ var code = url.searchParams.get('code');
 window.opener.postMessage({
   code: code
 }, '*');
+window.close();
 </script>
