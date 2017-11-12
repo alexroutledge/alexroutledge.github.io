@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fresca JS Library - Alternative Images</title>
+		<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="javascript/fresca-library.js"></script>
+		<script src="client/javascript/client.js"></script>
+
+	</head>
+	<body>
+		<main>
+			<article>
+				<h1>Fresca JS Library</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</article>
+			<article>
+				<h2>Image Zoom</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<img src="images/hodor/xlarge/hodor_1.jpg" class="large_image" />
+
+				<div class="small_images" data-altimages-event="click" data-altimages-init="true">
+<!-- 					<img src="images/hodor/xsmall/hodor_1.jpg" class="main_image" />
+					<img src="images/hodor/xsmall/hodor_2.jpg" class="main_image" />
+					<img src="images/hodor/xsmall/hodor_3.jpg" class="main_image" /> -->
+				</div>
+			</article>
+		</main>
+		<footer>
+			Gary, Alex, Janez, Martin
+		</footer>
+
+		<!-- Github Test -->
+		<script>
+
+			frescaLibrary = {};
+
+			frescaLibrary.altImages = (function() {
+
+				var 
+					$largeImageElement
+				,	largeImageUrl
+				,	largeImageDir
+				,	smallImageDir
+				,	smallImageUrl
+				,	$smallImagesContainer
+				,	$smallAltImagesElements
+				;
+
+				function $setLargeImageElement() {
+					$largeImageElement = $('.large_image');
+				}			
+
+				function setLargeImageUrl() {
+					largeImageUrl = $largeImageElement.attr('src');
+				}
+
+				function setLargeImageDir() {
+					largeImageDir = 'xlarge';
+				}
+
+				function setSmallImageDir() {
+					smallImageDir = 'xsmall';
+				}
+
+				function setSmallImageUrl() {
+					smallImageUrl = getLargeImageUrl().replace(getLargeImageDir(), getSmallImageDir());
+				}
+
+
+				function $setSmallImagesContainer() {
+					$smallImagesContainer = $('.small_images');
+				}
+
+				function $constructSmallAltImagesList() {
+					var 
+						url = getSmallImageUrl()
+					,	urlIncrement = url
+					,	$imgLi
+					,	$ul = $('<ul />')
+					,	$li = $('<li />')
+					,	i = 1
+					;
+
+					function ajaxLoop() {
+						$.ajax({
+							url: urlIncrement,
+							success: function () {
+								$imgLi = $('<img />').attr('src', urlIncrement).wrap($li).parent();
+								$ul.append($imgLi);
+								urlIncrement = url.replace(1, ++i);
+								ajaxLoop();
+							},
+							error: function () {
+								$smallImagesContainer.append($ul);
+								return;
+							}
+						});
+					}
+					ajaxLoop();
+				}
+
+				function getLargeImageDir() {
+					return largeImageDir;
+				}
+
+				function getSmallImageDir() {
+					return smallImageDir;
+				}
+
+				function getLargeImageUrl() {
+					return largeImageUrl;
+				}
+
+				function getSmallImageUrl() {
+					return smallImageUrl;
+				}
+
+				function selectImageEvent() {
+					$smallImagesContainer.delegate('img', 'click', function() {
+						var src = $(this).attr('src').replace(smallImageDir, largeImageDir);
+						$largeImageElement.attr('src', src);
+					})
+				}
+
+				return {
+
+					init: function() {
+						$setLargeImageElement();
+						setLargeImageUrl();
+						setLargeImageDir();
+						setSmallImageDir();
+						setSmallImageUrl();
+						$setSmallImagesContainer();
+						$constructSmallAltImagesList();
+						selectImageEvent();
+					}
+
+				}
+
+			})();
+
+			$(document).ready(function(){
+
+				frescaLibrary.altImages.init();
+				
+				 // The jQuery.fresca namespace will automatically be created if it doesn't exist
+				// $.widget("fresca.altImages", {
+				// 	options: {
+				// 		// Default options
+				// 		// main image identifier
+				// 		// alt images folder
+				// 		// alt images size + alt images gutter
+				// 		// 		or number of images to go in container
+				// 		// max number of iamges to laod in
+				// 	}, 
+
+				// 	_somePrivateMethod: function(argument) {
+				// 		// console.log(4);
+				// 	}, 
+
+				// 	_create: function(argument) {
+				// 		// get the DOM location of the main product image
+				// 		// get the file loaction of the main product image
+				// 		// construct the file location for the alt images using the main product image location and the alt images folder option
+				// 		// get the alt image filename using the main image name, minus the suffix
+				// 		// ajax in all the alt images using the alt images file location and the alt image filename
+
+				// 		// get the numbe of alt images
+				// 		// get the size of the container
+				// 		// get the number of images
+				// 		// 
+
+
+
+				// 		// console.log(1);
+				// 		// this.somePublicMethod();
+				// 		// this._somePrivateMethod();
+				// 	}, 
+
+				// 	somePublicMethod: function(argument) {
+				// 		// console.log(3);
+				// 	}
+				// });
+
+				// $('[data-altimages-event=click]').click(function(){
+				// 	alert('alt images init');
+				// 	// $(this).altImages({
+				// 	// 	'_somePrivateMethod': 'someVar',
+				// 	// 	'somePublicMethod': 'someVar'
+				// 	// });
+				// });
+
+				// $('[data-altimages-init=true]').altImages();
+				// first we get the main image file name, extension and url
+
+				// next we use these to retrieve the alternative images
+
+				// then we add the alternative images to the 
+
+
+
+				    // If you dont need to call original method
+				    // $.widget("ui.addresspicker", $.extend({}, $.ui.addresspicker.prototype, {
+				    //   _updatePosition: function(){
+				    //     // Do what you want to
+				    //   }
+				    // }));
+				 
+				    // // If you need to call original method
+				    // var _updatePosition = $.ui.addresspicker.prototype._updatePosition;
+				    // $.widget("ui.addresspicker", $.extend({}, $.ui.addresspicker.prototype, {
+				    //   _updatePosition: function(){
+				    //     // Do what you want to
+				    //     // Call original widget method  
+				    //     _updatePosition.apply(this, arguments);
+				    //   }
+				    // }));
+
+
+
+				
+			});
+
+		</script>
+
+	</body>
+</html>

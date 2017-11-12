@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fresca JS Library</title>
+		<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://dl.dropboxusercontent.com/u/8767938/fresca/html5/real-time/app/mustache.js"></script>
+		<script src="../javascript/fresca-library.js"></script>
+		<script src="../javascript/fresca-overlay.js"></script>
+		<script src="../client/javascript/client.js"></script>
+		<style>
+		.popup_container {
+		background: #fff;
+		border: 1px solid #ccc;
+		padding: 10px 10px 10px 15px;
+		-moz-box-shadow: 2px 2px 1px #ccc;
+		-webkit-box-shadow: 2px 2px 1px #ccc;
+		box-shadow: 2px 2px 1px #ccc;
+		}
+		.centered {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		}
+		</style>
+	</head>
+	<body>
+		<main>
+			<article>
+				<h1>Overlay plugin</h1>
+				<p>This is a really simple plugin example to show an overlay when a link is clicked.</p>
+				<a href="#" data-overlay>Test link</a>
+			</article>
+		</main>
+		<footer>
+			Gary, Alex, Janez, Martin
+		</footer>
+		<script type="text/javascript">
+		  $(function () {
+		    $('[data-overlay]').overlay({
+		      data: {
+		      	url: 'overlay-content.html',
+		      	dataType: 'html'
+		      },
+		      template: '<div id="modal" class="popup_container centered" data-overlay-container>{{{content}}}<a href="#" data-close-overlay>Close</a></div>'
+		    });
+		  })
+		</script>
+	</body>
+</html>

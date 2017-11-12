@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fresca JS Library</title>
+		<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="../javascript/fresca-library.js"></script>
+		<script src="../client/javascript/client.js"></script>
+	</head>
+	<body>
+		<main>
+			<article>
+				<h1>Fresca JS Library</h1>
+				<p>All of our projects are different, all of our JavaScript is different. Should we not instead build a new standard set of plugins into Blue Print? Essentially these will be locked files that can't be amended during a project.</p>
+				<p>If any amendments/improvements are required to a global plugin for a specific client, then they can be made using the jQuery extend functionality to override specific methods. Writing all our code as jQuery plugins will provide the encapsulation and reusability that is frequently missing from our code.</p>
+			</article>
+			<article>
+				<h2>Usage</h2>
+				<p>For each plugin, we should be able to add/override methods without having to create a new plugin. The jQuery widget factory provides a really nice, compact way to do this. As an example, for an existing method, we can just do this:</p>
+
+				<h3>Load in the library</h3>
+				<pre><span class="highlight_purple">&#60;script</span> <span class="highlight_green">src=</span><span class="highlight_blue">"fresca-library.js"</span><span class="highlight_purple">&#62;&#60;/script&#62;</span></pre>
+				
+				<h3>Call the library</h3>
+				<p>Very often we are modifying mark up, from this we cannot determine what JavaScript (if any) is attached. Would using data attributes be preferable to id's and class names? We could even namespace these data attributes like so:</p>
+				<pre><span class="highlight_purple">&#60;a</span> <span class="highlight_green">href=</span><span class="highlight_blue">"#"</span> <span class="highlight_green">data-reveal-events=</span><span class="highlight_blue">"click"</span> <span class="highlight_green">data-reveal-target=</span><span class="highlight_blue">"#myID"</span>&#62;Open modal window<span class="highlight_purple">&#60;/a&#62;</span></pre>
+
+				<h3>Extend the library</h3>
+				<p>The idea is that a developer could add/override individual methods without touching the shared file. This would be really useful for setting which JS templating engine to use or specifying dependencies on other libraries etc.</p>
+				<pre>
+$.widget("fresca.zoom", {
+	options: {
+		// Default options
+	}, somePrivateMethod: function(argument) {
+		// Create a private method
+	}, somePublicMethod: function(argument) {
+		// Create a public method
+	}
+});
+$('#my-zoom-image').zoom({
+	'_somePrivateMethod': 'someVar',
+	'somePublicMethod': 'someVar'
+});
+				</pre>
+			</article>
+			<article>
+				<h2>Code Examples</h2>
+				<ul>
+					<li><a href="image-zoom.html">Image Zoom</a></li>
+					<li><a href="alternative-images.html">Alternative Images</a></li>
+					<li><a href="carousel-scroller.html">Carousel Scroller</a></li>
+					<li><a href="modal-overlay.html">Modal Overlay</a></li>
+				</ul>
+			</article>
+			<article>
+				<h2>Contribute</h2>
+				<ul>
+					<li><a href="https://github.com/garyfagan1987/Web-Dev-Dev-JavaScript">View source on Git Hub</a></li>
+				</ul>
+			</article>
+		</main>
+		<footer>
+			Gary, Alex, Janez, Martin
+		</footer>
+	</body>
+</html>

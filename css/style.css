@@ -1,0 +1,18 @@
+html {background:url(http://subtlepatterns.com/patterns/navy_blue.png) repeat #333;}
+body {font-family:'Roboto', sans-serif; background:#FFF; color:#111; width:800px; margin:20px auto; padding:20px; border-radius:15px; background: #EEE; background: -moz-linear-gradient(top, #EEE 0%, #FFF 99%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EEE), color-stop(99%,#FFF)); background: -webkit-linear-gradient(top, #EEE 0%,#FFF 99%); background: -o-linear-gradient(top, #EEE 0%,#FFF 99%); background: -ms-linear-gradient(top, #EEE 0%,#FFF 99%); background: linear-gradient(to bottom, #EEE 0%,#FFF 99%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEE', endColorstr='#FFF',GradientType=0 );}
+a {text-decoration:underline; color:#111;}
+h1, h2, h3 {color:#0099CC; font-weight:normal; margin:0 0 10px 0;}
+h1 {font-size:2em;}
+h2 {font-size:1.5em;}
+h3 {font-size:1.2em;}
+p {margin:0 0 10px 0;}
+article {border-bottom:1px solid #BBB; margin:0 0 20px 0; padding:0 0 10px 0;}
+article:last-child {border-bottom:0; margin:0; padding:0;}
+footer {font-size:0.7em; color:#BBB; text-align:center;}
+pre {background:url(http://subtlepatterns.com/patterns/navy_blue.png) repeat #333; color:#FFF; padding:20px; border-radius:5px;}
+pre .highlight_purple {color:#E53463;}
+pre .highlight_green {color:#ADE82A;}
+pre .highlight_blue {color:#72D8F8; font-style:italic;}
+
+.small_images ul {margin:0; padding:0; list-style:none; white-space:nowrap;}
+.small_images li {margin:0; display:inline-block;}

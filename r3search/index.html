@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+    <title>R3SEARCH</title>
+    <link rel='stylesheet' href='css/app.css'>
+</head>
+
+<body id="bipPage" data-usEnabled="false">
+<header role="banner" class="header" itemscope itemtype="http://schema.org/Organization">
+<a href="/" itemprop="url">
+<h1 class="visuallyhidden">Details</h1>
+<img src="data:image/png;base64,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" itemprop="logo" class="header__logo " width="106" height="35"/>
+</a>
+<nav class="primary-nav">
+<ul class="primary-nav__list">
+<li class="primary-nav__item left" id="home-link">
+<a class="primary-nav__link primary-nav__link--home icon__search left" href="/">Start a new search</a>
+</li>
+<li class="primary-nav__item left" id="pref-link">
+<a class="primary-nav__link primary-nav__link--settings icon__settings left" href="#prefs">Preferences</a>
+</li>
+</ul>
+</nav>
+</header>
+<div id="search-pod" class="nav-panel">
+<section class="section" role="search">
+<form id="searchForm" action="/ucs/UcsSearchAction.do" class="search-form search-panel" method="GET">
+<div id="s-keywords" class="search-form__element search-form__element--keyword searchField">
+<input class="search-form__input icon__search transition transition__width" type="text" name="keywords" id="keywords" placeholder="e.g. plumbers, pizza or company name" autocomplete="off" autocorrect="off" value="THAI RESTAURANTS"/>
+</div>
+<div id="s-location" class="search-form__element search-form__element--location searchField" data-search-location>
+<input class="search-form__input icon__location" type="text" name="location" id="location" placeholder="UK, town or postcode" autocomplete="off" autocorrect="off" value="Reading"/>
+</div>
+<input type="hidden" name="scrambleSeed" value="1833476289" />
+<button type="submit" class="background-fill--yellow search-form__element__button" data-omniture-listing="search-button">Search</button>
+</form>
+</section>
+</div>
+<div class="nav-panel" id="prefs">
+<h3 class="nav-panel__heading">Preferred view</h3>
+<ul class="nav-panel__list" role="radiogroup">
+<li class="nav-panel__item active">
+<strong role="radio" aria-checked="true" class="icon__checked">Smartphone</strong>
+</li>
+<li class="nav-panel__item">
+<a role="radio" aria-checked="false" onclick="var expires = new Date();expires.setDate(expires.getDate() + 3650);document.cookie = 'device=default; expires=' + expires.toUTCString() + '; path=/;';location.reload();return false;" href="#">Desktop</a>
+</li>
+</ul>
+<h3 class="nav-panel__heading">Useful links</h3>
+<ul class="nav-panel__list">
+<li class="nav-panel__item">
+<a href="/responder_universal/static/smartphone/conditionsOfUse.html?page=static/legalPage">Conditions of use</a>
+</li>
+<li class="nav-panel__item">
+<a href="/responder_universal/static/smartphone/help.html?page=static/helpPage">Help</a>
+</li>
+<li class="nav-panel__item">
+<a href="/responder_universal/static/smartphone/about.html?page=static/aboutUsPage">About</a>
+</li>
+</ul>
+</div>
+<section role="main" id="main">
+<div id="ad_T1_901367505_100006439417000010" itemscope itemtype="http://schema.org/Restaurant" class="LocalBusiness">
+<div id="listings" class="listings listings--business listings--business--map">
+<div class="view-more" data-view-more>
+<a data-omniture-listing="view-more" href="/s/thai+restaurants-reading.html" class="view-more__link">
+<span class="view-more__description">View more</span>
+<span class="view-more__description strong">Thai Restaurants</span>
+<span class="view-more__description">in</span>
+<span class="strong view-more__description">Reading</span>
+<span class="icon__chevron icon__chevron--right icon__chevron--large icon__chevron--large--right right"></span>
+</a>
+</div>
+<div class="row">
+<h1 itemprop="name" class="listings__heading">Art Of Siam Thai Restaurant</h1>
+</div>
+<div class="row">
+<div class="listings__item--business left">
+<p class="listings__address row" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+<span itemprop="streetAddress">2a - 3a The Walk</span>,
+<span itemprop="addressLocality">Reading</span>,
+<span itemprop="addressRegion">Berkshire</span>,
+<span itemprop="postalCode">RG1 2HG</span>
+</p>
+<div class="listings__extra--business">
+<p class="tel">
+Tel:&nbsp;
+<a class="call-button-1 strong no-text-decoration" data-omniture-listing="call" itemprop="telephone" href="tel:+44-1189075168">0118 907 5168</a>
+</p>
+</div>
+<div class="review-summary" title="4.8 out of 5 stars from 4 ratings">
+<div class="icon__stars">
+<div class="icon__stars__rating" style="width:62.4px;"></div>
+</div>
+<span class="hidden">4.8</span>
+<span class="review-summary__link">
+4 ratings </span>
+</div>
+</div>
+<div class="listings__map--business right">
+<style>
+.static-map {
+background-image: url(http://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&sensor=false&center=51.4546242718%2C-0.9695961518&zoom=15&markers=icon:http://st.yell.com/img/Small_Selected_Pin.png%7C51.4546242718%2C-0.9695961518&size=90x78&client=gme-yelllimited&channel=UK-IYPD&signature=9HFYJmsqcHLhGR0fyghUq3tF6AA=);
+}
+</style>
+<a href="/biz/art-of-siam-thai-restaurant-reading-901367505/?view=map" data-omniture-listing="map">
+<div class="static-map">
+<span class="visuallyhidden">Map of Art Of Siam Thai Restaurant in Reading, Berkshire</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<nav class="business-actions business-actions--profile actions">
+<ul class="business-actions__list business-actions__list--profile clearfix">
+<li class="business-actions__item business-actions__item--columns-4 right">
+<a data-omniture-listing="call" class="business-actions__link business-actions__link--business" href="tel:+44-1189075168">
+<div class="business-actions__image sprite business-actions__image--call business-actions__image--call--profile"></div>
+<span class="business-actions__description visuallyhidden">Call</span>
+<span itemprop="telephone" class="hidden" data-prefix="Tel" data-number="tel:+44-1189075168">0118 907 5168</span>
+</a>
+</li>
+<li class="business-actions__item business-actions__item--columns-4 right">
+<a class="business-actions__link business-actions__link--business" href="http://maps.google.com/maps?daddr=Reading+RG1%202HG,+United%20Kingdom" data-omniture-listing="directions">
+<div class="business-actions__image sprite business-actions__image--route business-actions__image--route--profile"></div>
+<span class="business-actions__description visuallyhidden">Route</span>
+</a>
+</li>
+<li class="business-actions__item business-actions__item--columns-4 right">
+<a itemprop="email" class="business-actions__link business-actions__link--business" href="mailto:art_of_siam@yahoo.co.uk" data-omniture-listing="email">
+<div class="business-actions__image sprite business-actions__image--email"></div>
+<span class="business-actions__description visuallyhidden">Email</span>
+</a>
+</li>
+<li class="business-actions__item business-actions__item--columns-4 right">
+<a data-target-weblink rel="nofollow" itemprop="url" class="business-actions__link business-actions__link--business" href="http://www.artofsiamuk.com" data-omniture-listing="web-link">
+<div class="business-actions__image sprite business-actions__image--website"></div>
+<span class="business-actions__description visuallyhidden">Website</span>
+</a>
+</li>
+</ul>
+</nav>
+<div id="business-description" class="business-content business-content--description">
+<h2 class="visuallyhidden">Business description</h2>
+<p>Art of Siam Reading, a second branch of our popular authentic Thai cuisine first established in 2002. The restaurant is located on the first floor of The Walk shopping arcade, one of the most famous eating out place in Reading situated next to The Oracle, Reading town Centre. The restaurant has a capacity of 65 cozy seating to ensure a worm Thai home style service.</p>
+</div>
+<div class="quick-rate animated fade-in-left is-hidden" data-quick-rate>
+<form action="/quickratings/?natid=901367505" method="POST" data-form>
+<div class="quick-rate__content quick-rate__content--display row" data-content>
+<div class="quick-rate__heading quick-rate__heading--display left" data-header>
+<div class="quick-rate__title quick-rate__title--step1 background-fill--yellow">
+<span class="row quick-rate__text quick-rate__text--normal">QUICK</span>
+<span class="row quick-rate__text quick-rate__text--highlight">RATE</span>
+<sup class="quick-rate__text quick-rate__text--sup">beta</sup>
+</div>
+</div>
+<div class="quick-rate__list left">
+<label class="icon__star--large icon__star--large--inactive left" data-label data-index="0">
+<input data-radio type="radio" name="rating" value="1" class="is-hidden" />
+</label>
+<label class="icon__star--large icon__star--large--inactive left" data-label data-index="1">
+<input data-radio type="radio" name="rating" value="2" class="is-hidden" />
+</label>
+<label class="icon__star--large icon__star--large--inactive left" data-label data-index="2">
+<input data-radio type="radio" name="rating" value="3" class="is-hidden" />
+</label>
+<label class="icon__star--large icon__star--large--inactive left" data-label data-index="3">
+<input data-radio type="radio" name="rating" value="4" class="is-hidden" />
+</label>
+<label class="icon__star--large icon__star--large--inactive left" data-label data-index="4">
+<input data-radio type="radio" name="rating" value="5" class="is-hidden" />
+</label>
+</div>
+</div>
+</form>
+</div>
+<div class="quick-rate__description animated fade-in-left" data-error></div>
+<div id="business-functions" class="business-content">
+<h2 class="visuallyhidden">Services</h2>
+<ul class="business-functions business-content__list">
+<li class="business-content__item">The Best Of Thai Cuisine</li>
+<li class="business-content__item">Beautiful, Relaxed Atmosphere</li>
+<li class="business-content__item">Takeaway Food Available</li>
+<li class="business-content__item">Corporate, Business & Parties</li>
+<li class="business-content__item">Holds Up To 100 People</li>
+<li class="business-content__item">Fantastic Food & Ambiance</li>
+</ul>
+<a href="#more-bullets" id="open_business_functions" class="btn btn--business button expand hidden background-fill--yellow brand">More <span class="visuallyhidden">services</span></a>
+<ul id="more-bullets" class="business-content__list business-functions hide">
+<li class="business-content__item">The Best Of Thai Cuisine in Reading</li>
+<li class="business-content__item">Beautiful, Relaxed Atmosphere</li>
+<li class="business-content__item">Holds Up To 65 People</li>
+<li class="business-content__item">Corporate, Business & Parties</li>
+<li class="business-content__item">Fantastic Food & Ambiance</li>
+<li class="business-content__item">Extensive Menu & Set Meals</li>
+<li class="business-content__item">Takeaway Available</li>
+<li class="business-content__item">10% Off Takeaway</li>
+</ul>
+<p class="business-content__attribution"></p>
+</div>
+<div id="opening_hours">
+<div class="business-content">
+<table summary="Today's opening hours" class="max-width opening-hours opening-hours-today">
+<tbody>
+<tr class="left opening-hours__row" >
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day ">Today</td>
+<td class="text-left left opening-hours__row__item">12:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">14:30</td>
+</tr>
+<tr class="left opening-hours__row" >
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day opening-hours__row__item--pm">Today</td>
+<td class="text-left left opening-hours__row__item">18:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">23:00</td>
+</tr>
+</tbody>
+</table>
+<a href="#fullOH" id="open_opening_hours" class="btn btn--business button expand hidden background-fill--yellow brand">More <span class="visuallyhidden">opening hours</span></a>
+<div id="fullOH" class="hide">
+<table summary="Opening hours" class="max-width opening-hours opening-hours-all">
+<tbody>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Mo 12:00-14:30">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day ">Monday</td>
+<td class="text-left left opening-hours__row__item">12:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">14:30</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Mo 18:00-23:00">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day opening-hours__row__item--pm">Monday</td>
+<td class="text-left left opening-hours__row__item">18:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">23:00</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Tu 12:00-14:30">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day ">Tuesday</td>
+<td class="text-left left opening-hours__row__item">12:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">14:30</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Tu 18:00-23:00">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day opening-hours__row__item--pm">Tuesday</td>
+<td class="text-left left opening-hours__row__item">18:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">23:00</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="We 12:00-14:30">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day ">Wednesday</td>
+<td class="text-left left opening-hours__row__item">12:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">14:30</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="We 18:00-23:00">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day opening-hours__row__item--pm">Wednesday</td>
+<td class="text-left left opening-hours__row__item">18:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">23:00</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Th 12:00-14:30">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day ">Thursday</td>
+<td class="text-left left opening-hours__row__item">12:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">14:30</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Th 18:00-23:00">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day opening-hours__row__item--pm">Thursday</td>
+<td class="text-left left opening-hours__row__item">18:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">23:00</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Fr 12:00-14:30">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day ">Friday</td>
+<td class="text-left left opening-hours__row__item">12:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">14:30</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Fr 18:00-23:00">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day opening-hours__row__item--pm">Friday</td>
+<td class="text-left left opening-hours__row__item">18:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">23:00</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Sa 12:00-14:30">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day ">Saturday</td>
+<td class="text-left left opening-hours__row__item">12:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">14:30</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Sa 18:00-23:00">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day opening-hours__row__item--pm">Saturday</td>
+<td class="text-left left opening-hours__row__item">18:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">23:00</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Su 12:00-14:30">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day ">Sunday</td>
+<td class="text-left left opening-hours__row__item">12:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">14:30</td>
+</tr>
+<tr class="left opening-hours__row" itemprop="openingHours" datetime="Su 18:00-23:00">
+<td class="text-left left opening-hours__row__item opening-hours__row__item--day day opening-hours__row__item--pm">Sunday</td>
+<td class="text-left left opening-hours__row__item">18:00</td>
+<td class="text-center left opening-hours__row__item">-</td>
+<td class="text-right left opening-hours__row__item">23:00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="photo-gallery" class="business-content">
+<h2>Photos</h2>
+<div class="photo-preview">
+<ul class="clearfix photo-preview__list">
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="0">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/12e24dc5-6f00-41f2-a44e-d1c729e87422_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="1">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/80809024-7111-4ed0-9f2f-90df3c48ef4b_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 2 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="2">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/512b09c7-6ebd-4ad6-9340-3754385f05a3_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 3 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="3">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/9f744e11-3420-4059-ae16-93bcd0a15c84_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 4 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="4">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/4bd443d6-1a90-4de9-a662-63f8d2ce82a0_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 5 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="5">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/c2d4a585-dbb0-4dde-a6b5-432aa50e45f2_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 6 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="6">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/44c117d3-0d22-4af8-a292-4e99cb8b9d9e_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 7 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="7">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/6593be4d-167e-4c25-9c61-c3f3b68610da_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 8 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="8">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/b9322bd5-a31d-43f7-8429-4eaa2a844e7f_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 9 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="9">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/da76250f-b592-4990-8926-fd09e7cd1795_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 10 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="10">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/64cb2297-3f09-47a2-96f7-137b6207b940_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 11 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="11">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/b2233fcc-19f3-47f8-baef-09d8c7bf6cf2_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 12 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="12">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/3fd7615c-ffe0-473c-83b8-9d2159ee95a9_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 13 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="13">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/4b9c676b-54fb-43b0-aace-a49ca2a3e3d6_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 14 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="14">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/351d6e52-08ff-4b8d-af60-5292cddbd39c_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 15 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="15">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/fa1bc543-ca44-464c-a719-2e6337b7563a_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 16 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="16">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/8b5afc89-813f-4618-bbe4-f6bbde2423ba_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 17 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="17">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/02354930-ad21-4f46-94fc-083388cea8bb_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 18 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="18">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/33dcd023-8167-4c32-92d4-28748b2f3fbc_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 19 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="19">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/f3f8414c-346c-40f4-8f29-44a5922919d7_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 20 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+<li class="photo-preview__list__item left">
+<a class="photo-preview__list__item__link lightbox" href="#slider" data-carousel-index="20">
+<img class="photo-preview__list__item__link__image" style="background:url(http://www.yell.com/static/image/19418e5e-db2c-45a1-86c0-2ae36dc6521e_image_jpeg?t=tr/w:100/h:100/m:FitPad) no-repeat;" src="/img/gallery_blank.gif" alt="Image 21 of Art Of Siam Thai Restaurant" />
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="payment-methods" class="business-content">
+<h2 class="visuallyhidden">Payment methods</h2>
+<ul class="business-content__list">
+<li class="business-content__item" itemprop="paymentAccepted">Visa</li>
+<li class="business-content__item" itemprop="paymentAccepted">Mastercard</li>
+<li class="business-content__item" itemprop="paymentAccepted">Maestro</li>
+<li class="business-content__item" itemprop="paymentAccepted">American Express</li>
+<li class="business-content__item" itemprop="paymentAccepted">Solo</li>
+<li class="business-content__item" itemprop="paymentAccepted">Cash</li>
+<li class="business-content__item" itemprop="paymentAccepted">Delta</li>
+<li class="business-content__item" itemprop="paymentAccepted">Visa Electron</li>
+<li class="business-content__item" itemprop="paymentAccepted">Credit Cards</li>
+</ul>
+</div>
+</div>
+</section>
+<div id="slider" class="lightbox__target lightbox-target">
+<div id="carousel" class="carousel" data-carousel>
+<ul role="listbox" class="carousel carousel__group" data-carousel-group>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/12e24dc5-6f00-41f2-a44e-d1c729e87422_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 2 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/80809024-7111-4ed0-9f2f-90df3c48ef4b_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 3 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/512b09c7-6ebd-4ad6-9340-3754385f05a3_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 4 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/9f744e11-3420-4059-ae16-93bcd0a15c84_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 5 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/4bd443d6-1a90-4de9-a662-63f8d2ce82a0_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 6 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/c2d4a585-dbb0-4dde-a6b5-432aa50e45f2_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 7 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/44c117d3-0d22-4af8-a292-4e99cb8b9d9e_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 8 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/6593be4d-167e-4c25-9c61-c3f3b68610da_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 9 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/b9322bd5-a31d-43f7-8429-4eaa2a844e7f_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 10 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/da76250f-b592-4990-8926-fd09e7cd1795_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 11 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/64cb2297-3f09-47a2-96f7-137b6207b940_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 12 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/b2233fcc-19f3-47f8-baef-09d8c7bf6cf2_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 13 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/3fd7615c-ffe0-473c-83b8-9d2159ee95a9_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 14 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/4b9c676b-54fb-43b0-aace-a49ca2a3e3d6_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 15 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/351d6e52-08ff-4b8d-af60-5292cddbd39c_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 16 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/fa1bc543-ca44-464c-a719-2e6337b7563a_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 17 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/8b5afc89-813f-4618-bbe4-f6bbde2423ba_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 18 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/02354930-ad21-4f46-94fc-083388cea8bb_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 19 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/33dcd023-8167-4c32-92d4-28748b2f3fbc_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 20 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/f3f8414c-346c-40f4-8f29-44a5922919d7_image_jpeg"></picture>
+</li>
+<li role="option" aria-selected="false" aria-hidden="true" class="carousel carousel__item left" data-carousel-item tabindex="-1">
+<picture alt="Image 21 of Art Of Siam Thai Restaurant" data-src="http://www.yell.com/static/image/19418e5e-db2c-45a1-86c0-2ae36dc6521e_image_jpeg"></picture>
+</li>
+</ul>
+</div>
+<div class="carousel carousel__pagination" data-carousel-pagination>1 of 21</div>
+<a class="lightbox__close lightbox-close" href="#photo-gallery"></a>
+</div>
+<footer class="clearfix footer footer--home">
+<nav>
+<ul class="footer-switch-view__list">
+<li class="footer-switch-view__item">
+View:
+</li>
+<li class="footer-switch-view__item">
+<strong>Smartphone</strong>
+</li>
+<li class="footer-switch-view__item">
+<a onclick="var expires = new Date();expires.setDate(expires.getDate() + 3650);document.cookie = 'device=default; expires=' + expires.toUTCString() + '; path=/;';location.reload();return false;" href="#">Desktop</a>
+</li>
+</ul>
+<ul class="footer-navigation__list">
+<li class="footer-navigation__item">
+<a href="/responder_universal/static/smartphone/conditionsOfUse.html?page=static/legalPage">Conditions of use</a>
+</li>
+<li class="footer-navigation__item">
+<a href="/responder_universal/static/smartphone/help.html?page=static/helpPage">Help</a>
+</li>
+<li class="footer-navigation__item">
+<a href="/responder_universal/static/smartphone/about.html?page=static/aboutUsPage">About</a>
+</li>
+<li class="footer-navigation__item">
+<a href="/uk/">Popular locations</a>
+</li>
+</ul>
+<p class="copyright">&copy; hibu (UK) Limited 2015</p>
+</nav>
+</footer>
+<div id="trackingContainer">
+</div>
+<div class="app-promo app-promo--banner windows" id="appPromo" data-app-promo="true" data-omniture-promo="app-promo/windows-display" data-app-promo-page="bipPage">
+<h3 class="app-promo__heading">Download our App now!</h3>
+<a role="button" class="app-promo__close app-promo__close--banner" href="#close" data-close-promo="" data-omniture-listing="app-promo/windows-dismiss"><span class="visuallyhidden">Hide this banner</span></a>
+<img src="/img/app-promo-yell-icon.png" class="app-promo__image" alt="Yell.com App Icon">
+<div class="app-promo__columns">
+<p class="app-promo__description">Create an address book of your favourite businesses directly from the app</p>
+<a class="app-promo__button" rel="nofollow" href="http://www.windowsphone.com/en-gb/store/app/yell/d963da9a-fd85-e011-986b-78e7d1fa76f8" data-get-app="true" data-omniture-listing="app-promo/windows-app-click">Get the app</a>
+</div>
+</div>
+<script src='js/app.js'></script>
+</body>
+
+</html>

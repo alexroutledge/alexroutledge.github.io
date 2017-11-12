@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('lazy-load-images.js', {
+      scope: './'
+    });
+  }
+  </script>
+</head>
+<body>
+  <img src="test.gif"/>
+</body>
+</html>
