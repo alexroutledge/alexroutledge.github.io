@@ -11,6 +11,6 @@ export class AboutComponent implements OnInit {
   constructor(private title: Title) { }
 
   ngOnInit() {
-    this.title.setTitle('About Angular Pokédex');
+    this.title.setTitle('About');
   }
 }

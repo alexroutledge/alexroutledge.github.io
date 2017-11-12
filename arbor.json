@@ -1,5 +1,5 @@
 {
-  "name": "ng-pokedex",
+  "name": "portfolio",
   "tasks": {
     "install": "yarn install",
     "lint": "yarn run lint",

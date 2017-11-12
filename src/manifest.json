@@ -1,13 +1,13 @@
 {
-  "name": "NG-Pokédex",
-  "short_name": "NG-Pokédex",
-  "theme_color": "#ef5350",
-  "background_color": "#ef5350",
+  "name": "Alex Routledge",
+  "short_name": "Alex Routledge",
+  "theme_color": "#673AB7",
+  "background_color": "#673AB7",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
   "start_url": "/",
-  "description":"A fast progressive web app Pokemon Pokédex",
+  "description":"A fast progressive web app Alex Routledge",
   "icons": [
     {
       "src": "assets/images/icons/icon-72x72.png",

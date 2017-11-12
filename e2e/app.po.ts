@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class NgPokedexPage {
+export class PortfolioPage {
   navigateTo() {
     return browser.get('/home');
   }

@@ -40,5 +40,18 @@
   &__content {
     color: $color-grey-dark;
     margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  &__link {
+    background: #6c4294;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 25px;
+  }
+  &__logo {
+    height: 38px;
   }
 }

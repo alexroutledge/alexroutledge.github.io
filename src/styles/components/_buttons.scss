@@ -8,7 +8,7 @@ button {
 
 .btn, .btn--raised {
   background: 0;
-  color: $color-pokedex-red;
+  color: $color-portfolio;
   padding: 12px 20px;
   border: 0;
   display: inline-block;
@@ -33,13 +33,13 @@ button {
   }
 
   &--raised {
-    background-color: $color-pokedex-red;
+    background-color: $color-portfolio;
     color: $color-white;
     box-shadow: $btn-box-shadow;
 
     &:hover {
       box-shadow: $btn-box-shadow-hover;
-      background-color: lighten($color-pokedex-red, 4%);
+      background-color: lighten($color-portfolio, 4%);
     }
   }
 
@@ -67,7 +67,7 @@ button {
   line-height: normal;
   position: fixed;
   border: 0;
-  background-color: $color-pokedex-red;
+  background-color: $color-portfolio;
   color: $color-white;
   outline: none;
 }

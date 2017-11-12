@@ -15,8 +15,8 @@ input[type=text], input[type=date], textarea {
   transition: all 0.3s;
 
   &:focus {
-    border-bottom: 1px solid $color-pokedex-red;
-    box-shadow: 0 1px 0 0 $color-pokedex-red;
+    border-bottom: 1px solid $color-portfolio;
+    box-shadow: 0 1px 0 0 $color-portfolio;
   }
 }
 
@@ -84,7 +84,7 @@ textarea {
   user-select: none;
   outline: 0;
   padding: 0;
-  color: $color-pokedex-red;
+  color: $color-portfolio;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -105,7 +105,7 @@ textarea {
 
     &:focus + label {
       transition: all 0.3s;
-      color: $color-pokedex-red;
+      color: $color-portfolio;
     }
   }
 

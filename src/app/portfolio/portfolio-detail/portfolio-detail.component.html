@@ -1,0 +1,18 @@
+<app-modal [visible]="true" (visibleChange)="close()" (next)="next()" (previous)="previous()">
+  <div #view *ngIf="portfolio | async; let portfolio">
+    <div bp-layout="row">
+      <div bp-layout="col 5@sm 4@md">
+        <img [src]="portfolio.imgUrl" [ngClass]="portfolio.id" class="portfolio-details__image"/>
+      </div>
+      <div bp-layout="col 7@sm 8@md">
+        <h2>{{portfolio.name}}</h2>
+        <div *ngFor="let type of portfolio.types" class="type" [ngClass]="type">
+          {{type}}
+        </div>
+        <p *ngFor="let description of portfolio.content || []">
+          {{description}}
+        </p>
+      </div>
+    </div>
+  </div>
+</app-modal>

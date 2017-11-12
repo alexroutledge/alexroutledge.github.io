@@ -30,7 +30,7 @@
   &__inner {
     min-height: 110vh;
     width: 100%;
-    max-width: 720px;
+    max-width: 100%;
     margin: 0 auto;
     background-color: $color-body;
     z-index: 2;
@@ -49,7 +49,7 @@
   }
 
   &__header {
-    background-color: $color-pokedex-red;
+    background-color: $color-portfolio;
   }
 
   &__view {
@@ -72,7 +72,7 @@
     }
     
     &:hover {
-      background-color: lighten($color-pokedex-red, 8%);
+      background-color: lighten($color-portfolio, 8%);
     }
   }
 

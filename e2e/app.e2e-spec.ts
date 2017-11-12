@@ -1,14 +1,14 @@
-import { NgPokedexPage } from './app.po';
+import { PortfolioPage } from './app.po';
 
-describe('ng-pokedex App', function() {
-  let page: NgPokedexPage;
+describe('Portfolio App', function() {
+  let page: PortfolioPage;
 
   beforeEach(() => {
-    page = new NgPokedexPage();
+    page = new PortfolioPage();
   });
 
-  it('should display heading saying NG-Pokédex', () => {
+  it('should display heading saying Alex Routledge', () => {
     page.navigateTo();
-    expect(page.getHeadingText()).toEqual('NG-Pokédex');
+    expect(page.getHeadingText()).toEqual('Alex Routledge');
   });
 });
