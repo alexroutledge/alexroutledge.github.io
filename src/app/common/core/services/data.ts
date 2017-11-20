@@ -1,6 +1,45 @@
 /* tslint:disable */
 export const portfolioData = [
   {
+    id: 'veritas-map',
+    name: 'Dynamic Map',
+    types: ['angular', 'd3', 'express', 'node'],
+    logoUrl: '/assets/images/veritas_logo.png',
+    imgUrl: '/assets/images/veritas_map.png',
+    content: [
+      'This is an interactive map that renders location data using Angular, D3 and Express.',
+      'The user makes a request to a REST endpoint to retrieve a collection of locations and these are rendered dynamically using Angular and D3.',
+      'PassportJS is used for authentication and Node is used to aggregate multiple API calls.'
+    ],
+    description: 'Interactive map view built using Angular, D3 and Express'
+  },
+  {
+    id: 'veritas-dashboard',
+    name: 'Dynamic Map',
+    types: ['angular', 'd3', 'express', 'node'],
+    logoUrl: '/assets/images/veritas_logo.png',
+    imgUrl: '/assets/images/veritas_dashboard.png',
+    content: [
+      'This is an interactive dashboard that renders location data using Angular, D3 and Express.',
+      'Users can drag, sort, customise and save their own dashboard views.',
+      'PassportJS is used for authentication and Node is used to aggregate multiple API calls.'
+    ],
+    description: 'Interactive dashboard view built using Angular, D3 and Express'
+  },
+  {
+    id: 'veritas-list',
+    name: 'Dynamic Map',
+    types: ['angular', 'd3', 'express', 'node'],
+    logoUrl: '/assets/images/veritas_logo.png',
+    imgUrl: '/assets/images/veritas_list.png',
+    content: [
+      'This is an interactive list view that renders location data using Angular, D3 and Express.',
+      'Users can sort the list view. Requests are made using infinite scroll to minimise API calls and improve performance.',
+      'PassportJS is used for authentication and Node is used to aggregate multiple API calls.'
+    ],
+    description: 'Interactive dashboard view built using Angular, D3 and Express'
+  },
+  {
     id: 'yell-maps',
     name: 'Dynamic Map',
     types: ['javascript', 'css', 'jquery', 'google maps'],
@@ -15,7 +54,7 @@ export const portfolioData = [
   {
     id: 'yell-smartphone',
     name: 'Discover',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'google maps'],
     logoUrl: '/assets/images/yell_logo.png',
     imgUrl: '/assets/images/yell_discover.png',
     content: [
@@ -28,7 +67,7 @@ export const portfolioData = [
   {
     id: 'perfumeshop-checkout',
     name: 'Checkout Redesign',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'jquery', 'backbone'],
     logoUrl: '/assets/images/perfumeshop_logo.gif',
     imgUrl: '/assets/images/perfume_checkout_redesign.png',
     content: [
@@ -41,7 +80,7 @@ export const portfolioData = [
   {
     id: 'thomaspink-loyalty',
     name: 'CRM/loyalty integration',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'jquery', 'JSTL'],
     logoUrl: '/assets/images/thomaspink_logo.gif',
     imgUrl: '/assets/images/thomaspink_crm.png',
     content: [
@@ -53,7 +92,7 @@ export const portfolioData = [
   {
     id: 'claires-upgrade',
     name: 'Ecommerce platform upgrade',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'jquery', 'JSTL'],
     logoUrl: '/assets/images/claires_logo.png',
     imgUrl: '/assets/images/claires_upgrade.png',
     content: [
@@ -65,7 +104,7 @@ export const portfolioData = [
   {
     id: 'austinreed-recommendations',
     name: 'Product recommendations integration',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'jquery', 'JSTL'],
     logoUrl: '/assets/images/austinreed_logo.gif',
     imgUrl: '/assets/images/austinreed_peerius.png',
     content: [
@@ -77,7 +116,7 @@ export const portfolioData = [
   {
     id: 'perfumeshop-loyalty',
     name: 'CRM/loyalty integration',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'jquery', 'JSTL'],
     logoUrl: '/assets/images/perfumeshop_logo.gif',
     imgUrl: '/assets/images/perfume_crm.png',
     content: [
@@ -89,7 +128,7 @@ export const portfolioData = [
   {
     id: 'thomaspink-checkout',
     name: 'Checkout redesign',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'jquery', 'JSTL'],
     logoUrl: '/assets/images/thomaspink_logo.gif',
     imgUrl: '/assets/images/thomaspink_checkout.png',
     content: [
@@ -101,7 +140,7 @@ export const portfolioData = [
   {
     id: 'citrix-design',
     name: 'Site redesign',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'jquery', 'JSP'],
     logoUrl: '/assets/images/citrix_logo.png',
     imgUrl: '/assets/images/citrix_redesign.png',
     content: [
@@ -111,9 +150,9 @@ export const portfolioData = [
     description: 'Site redesign built using jQuery, JSP/JSTL and XHTML.'
   },
   {
-    id: 'citrix-design',
-    name: 'Site redesign',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    id: 'realtime-analytics',
+    name: 'Real time analytics',
+    types: ['javascript', 'backbone', 'firebase', 'google maps'],
     logoUrl: '/assets/images/github_logo.jpg',
     imgUrl: '/assets/images/realtime_analytics.png',
     content: [
@@ -124,7 +163,7 @@ export const portfolioData = [
   {
     id: 'perfumeshop-mobile',
     name: 'Mobile optimized site',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'jquery', 'JSTL'],
     logoUrl: '/assets/images/perfumeshop_logo.gif',
     imgUrl: '/assets/images/perfume_mobile.png',
     content: [
@@ -134,9 +173,9 @@ export const portfolioData = [
     description: 'Mobile optimized site built using jQuery, JSP/JSTL and XHTML.'
   },
   {
-    id: 'citrix-design',
+    id: 'fab-product-selector',
     name: 'Product selector',
-    types: ['javascript', 'css', 'jquery', 'google maps'],
+    types: ['javascript', 'css', 'jquery', 'JSTL'],
     logoUrl: '/assets/images/farrowandball_logo.jpg',
     imgUrl: '/assets/images/farrowandball_selector.png',
     content: [

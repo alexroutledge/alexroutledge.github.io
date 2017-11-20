@@ -15,6 +15,15 @@
   <style>
     body {background-color:#ededed}main {display:flex;min-height:93vh;flex-direction:column}
   </style>
+  <script>
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
 </head>
 <body>
   <app-root>
