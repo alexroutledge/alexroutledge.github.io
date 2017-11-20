@@ -1,0 +1,64 @@
+@import '../../../styles/_config';
+
+h1 {
+  margin-bottom: 4px;
+  margin-top: 10px;
+}
+
+.sprite {
+  transform: scale(1.6);
+  margin: 20px auto;
+
+  @media (min-width: 420px) {
+    transform: scale(2);
+    margin: 30px auto;
+  }
+}
+
+.type {
+  display: inline-block;
+  padding: 4px 10px;
+  color: $color-white;
+  margin-right: 4px;
+}
+
+.type:nth-of-type(1n) {
+  background-color: #F45545;
+}
+
+.type:nth-of-type(2n) {
+  background-color: #558BCF;
+}
+
+.type:nth-of-type(3n) {
+  background-color: #589F43;
+}
+
+.type:nth-of-type(4n) {
+  background-color: #6c4294;
+}
+
+.type:nth-of-type(5n) {
+  background-color: #E3C066;
+}
+
+.type:nth-of-type(6n) {
+  background-color: #bd8d41;
+}
+
+.type:nth-of-type(7n) {
+  background-color: #acbe16;
+}
+
+.portfolio-details__image {
+  width: 100%;
+  .yell-smartphone {
+    width: 200px;
+  }
+}
+
+.portfolio-details__image.yell-smartphone {
+  display: table;
+  margin: 0 auto;
+  width: 200px;
+}

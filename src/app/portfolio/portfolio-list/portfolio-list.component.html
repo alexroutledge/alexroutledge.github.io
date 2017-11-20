@@ -1,0 +1,32 @@
+<div bp-layout="row">
+	<div bp-layout="col 12">
+		<app-form-search (formChange)="search($event)"></app-form-search>
+	</div>
+</div>
+
+<div bp-layout="row">
+  <div *ngFor="let p of portfolio | async" bp-layout="col 6 4@md 3@lg">
+		<div class="card--media">
+			<div class="card--media__content">
+				<img class="card--media__logo" [src]="p.logoUrl" />
+				<p>{{p.description}}</p>
+			</div>
+			<a [routerLink]="['./', p.id]" class="card--media__link">View more</a>
+		</div>
+		<!--<a [routerLink]="['./', p.id]" class="card--media">
+			<img [src]="p.logoUrl" width="100%" />
+			<div class="card--media__content">
+				{{p.name}}
+			</div>
+		</a>
+		<a href style="
+				background: #6c4294;
+				color: #fff;
+				padding: 10px;
+				text-decoration: none;
+				border-radius: 3px;
+		">View more</a>-->
+  </div>
+</div>
+
+<router-outlet></router-outlet>
